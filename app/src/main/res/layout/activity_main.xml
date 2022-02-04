@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:layout_gravity="center">
+
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/imagebrand" />
+
+        <Button
+            android:id="@+id/scanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Scanner un Qrcode"
+            android:textAllCaps="false" />
+
+        <Button
+            android:id="@+id/liste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/scanner"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="40dp"
+            android:backgroundTint="@color/black"
+            android:text="Voir les informations"
+            android:textAllCaps="false" />
+    </RelativeLayout>
+
+
+
+
+
+    <com.budiyev.android.codescanner.CodeScannerView
+        android:id="@+id/scanner_view"
+        android:layout_width="match_parent"
+        app:autoFocusButtonColor="@color/white"
+        app:autoFocusButtonVisible="true"
+        android:layout_height="match_parent"
+        app:flashButtonColor="@color/white"
+        app:flashButtonVisible="true"
+        app:frameColor="@color/white"
+        app:frameCornersSize="50dp"
+        app:frameCornersRadius="0dp"
+        app:frameAspectRatioHeight="1"
+        app:frameAspectRatioWidth="1"
+        app:frameSize="0.75"
+        app:frameThickness="2dp"
+        app:maskColor="#77000000"
+        android:visibility="invisible"/>
+    <Button
+        android:id="@+id/afficher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-60dp"
+        android:layout_gravity="center"
+        android:text="Afficher les resultats"
+        android:visibility="invisible"
+        />
+    <Button
+        android:id="@+id/welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_marginTop="-100dp"
+        android:layout_gravity="center"
+        android:text="Accueil"/>
+
+
+
+
+</LinearLayout>

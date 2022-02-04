@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/relativecurrent"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:elevation="20dp"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:id="@+id/nomtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nom:  "
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/nom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/nomtitle"
+            android:text="Ndoye"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/prenomtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nomtitle"
+            android:text="Prenom:  "
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/prenom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nomtitle"
+            android:layout_toRightOf="@id/prenomtitle"
+            android:text="Mohamed"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/date_naissancetitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/prenomtitle"
+            android:text="Date de naissance:  "
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/date_naissance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/prenom"
+            android:layout_toRightOf="@id/date_naissancetitle"
+            android:text="le 01/12/2022"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/date_vaccinationtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/date_naissance"
+            android:text="Date de vaccination:  "
+
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/date_vaccination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/date_naissance"
+            android:layout_toEndOf="@id/date_vaccinationtitle"
+            android:text="le 01/12/2022"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/type_vaccintitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/date_vaccination"
+            android:text="Type de vaccin: "
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/type_vaccin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/date_vaccination"
+            android:layout_toEndOf="@id/type_vaccintitle"
+            android:text="Astrazenika"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/nombre_dosetitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/type_vaccin"
+            android:text="Nombre de dose:  "
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/nombre_dose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/type_vaccin"
+            android:layout_toEndOf="@id/nombre_dosetitle"
+            android:text="4"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nombre_dose"
+            android:layout_marginTop="10dp"
+            android:elevation="20dp"
+            android:padding="10dp"
+            android:text="enregistrer" />
+
+        <Button
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nombre_dose"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_toLeftOf="@id/nombre_dose"
+            android:backgroundTint="#800"
+            android:elevation="20dp"
+            android:padding="10dp"
+            android:text="Anuuler" />
+
+
+    </RelativeLayout>
+
+</LinearLayout>
