@@ -48,11 +48,12 @@ class Resultat : AppCompatActivity() {
 
     }
 
-    fun fetchQrCode(){
+    //fetching all the qrcode scanned from database
+    fun fetchQrCode() {
         val service = RetrofitFactory.makeRetrofitService()
         val call = service.getqrcode()
 
-        call.enqueue(object : Callback<MutableList<UserInfo>>{
+        call.enqueue(object : Callback<MutableList<UserInfo>> {
             override fun onResponse(
                 call: Call<MutableList<UserInfo>>,
                 response: Response<MutableList<UserInfo>>

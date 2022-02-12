@@ -1,5 +1,6 @@
 package com.example.qrcodeinfo
 
+//this is the model of the qrcode information
 data class UserInfo(
     val nom: String? = null,
     val prenom: String? = null,

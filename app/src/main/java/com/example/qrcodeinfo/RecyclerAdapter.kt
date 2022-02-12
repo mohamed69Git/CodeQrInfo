@@ -32,6 +32,7 @@ class ScannedUserHolder(itemView: View): RecyclerView.ViewHolder(itemView){
     private val nombre_dose: TextView = itemView.findViewById(R.id.nombre_dose)
     private val imageView: ImageView = itemView.findViewById(R.id.iconshow)
 
+    //binding the model and the view
     fun bindView(userInfo: UserInfo){
         nom.text = userInfo.nom
         prenom.text = userInfo.prenom

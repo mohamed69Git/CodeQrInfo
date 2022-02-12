@@ -46,16 +46,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         liste = findViewById(R.id.liste)
         scanner = findViewById(R.id.scanner)
-        liste.setOnClickListener{
+        liste.setOnClickListener {
             startActivity(Intent(this, Resultat::class.java))
         }
-        scanner.setOnClickListener{
+        scanner.setOnClickListener {
             findViewById<RelativeLayout>(R.id.relative).visibility = GONE
             welcome.visibility = VISIBLE
             findViewById<View>(R.id.scanner_view).visibility = VISIBLE
         }
-        if (ContextCompat.checkSelfPermission(this,
-                android.Manifest.permission.CAMERA) ==
+        if (ContextCompat.checkSelfPermission(
+                this,
+                android.Manifest.permission.CAMERA
+            ) ==
             PackageManager.PERMISSION_DENIED
         ) {
             ActivityCompat.requestPermissions(
@@ -65,11 +67,8 @@ class MainActivity : AppCompatActivity() {
             )
 
         } else {
-
             startScanning();
         }
-
-
     }
 
 
@@ -82,12 +81,12 @@ class MainActivity : AppCompatActivity() {
         scanner.setPrompt("QR Code Scanner Prompt Text")
         scanner.setBeepEnabled(true)
         scanner.setTimeout(10000)
-
         // Start Scanner (don't use initiateScan() unless if you want to use OnActivityResult)
         mQrResultLauncher.launch(scanner.createScanIntent())
     }
 
 
+    //function to scan qrcode and store information in the database sqlite
     fun startScanning() {
         val scannerView: CodeScannerView = findViewById(R.id.scanner_view)
         codescanner = CodeScanner(this, scannerView)
@@ -99,10 +98,7 @@ class MainActivity : AppCompatActivity() {
         codescanner.isFlashEnabled = false
         codescanner.decodeCallback = DecodeCallback {
             runOnUiThread {
-
-//                Toast.makeText(this, "${it.text}", Toast.LENGTH_SHORT).show()
                 try {
-
                     afficher.visibility = VISIBLE
                     val jsonObject = JSONTokener(it.text).nextValue() as JSONObject
                     val nom = jsonObject.getString("nom")
@@ -128,7 +124,6 @@ class MainActivity : AppCompatActivity() {
                     )
                     val editor: SharedPreferences.Editor = sharedPreferences.edit()
                     editor.apply {
-
                         putString("nom", nom)
                         putString("prenom", prenom)
                         putString("date_naissance", date_naissance)
@@ -140,7 +135,7 @@ class MainActivity : AppCompatActivity() {
                     affcher.visibility = VISIBLE
                     affcher.setOnClickListener {
                         var dialog = DialogConfirm()
-                        dialog.show(supportFragmentManager,"confirm")
+                        dialog.show(supportFragmentManager, "confirm")
                         afficher.visibility = GONE
 
                     }
@@ -148,8 +143,7 @@ class MainActivity : AppCompatActivity() {
                         startActivity(Intent(this, MainActivity::class.java))
                         finish()
                     }
-                }
-                catch (e: Exception){
+                } catch (e: Exception) {
                     print(e.stackTrace)
                     Toast.makeText(
                         this, "Ce code qr n'est pas prise en compte",
@@ -157,9 +151,6 @@ class MainActivity : AppCompatActivity() {
                     )
                         .show()
                 }
-
-
-
 
 
             }
@@ -179,6 +170,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    //ask permission to the user for the use of camera
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -197,13 +189,14 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    //when the user comes back to the app the last state should be recovered
     override fun onResume() {
         super.onResume()
         if (::codescanner.isInitialized) {
             codescanner?.startPreview()
         }
     }
-
+    //when the use leave the application without closing the application
     override fun onPause() {
         super.onPause()
         if (::codescanner.isInitialized) {
@@ -211,9 +204,5 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-
-    //let's create function to save data in our datebase
-
-
 
 }
