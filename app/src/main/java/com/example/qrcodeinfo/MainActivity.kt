@@ -196,6 +196,7 @@ class MainActivity : AppCompatActivity() {
             codescanner?.startPreview()
         }
     }
+
     //when the use leave the application without closing the application
     override fun onPause() {
         super.onPause()

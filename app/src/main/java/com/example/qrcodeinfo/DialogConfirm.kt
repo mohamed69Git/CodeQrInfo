@@ -63,7 +63,7 @@ class DialogConfirm : DialogFragment() {
     }
 
     //Store the qrcode information in the sqlite database
-    fun saveqrcode(userInfo: UserInfo) {
+    private fun saveqrcode(userInfo: UserInfo) {
         val service = RetrofitFactory.makeRetrofitService()
         val call = service.insertInformation(userInfo)
 

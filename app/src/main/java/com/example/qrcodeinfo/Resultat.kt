@@ -62,7 +62,8 @@ class Resultat : AppCompatActivity() {
                     layoutManager = LinearLayoutManager(this@Resultat)
                     adapter = RecyclerAdapter(response.body()!!)
                     adapter = RecyclerAdapter(response.body()!!)
-                    println("########################## ${response.body()} ########################################")
+                    println("########################## ${response.body()} #################" +
+                            "#######################")
                 }
             }
 
